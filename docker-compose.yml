@@ -1,0 +1,11 @@
+version: '3.8'
+services:
+  barracuda-dhcp-server:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: barracuda-dhcp-server
+    network_mode: host
+    environment:
+      - INTERFACE=eth0
+    restart: unless-stopped
