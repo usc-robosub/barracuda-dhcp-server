@@ -4,8 +4,12 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+      args:
+        - INTERFACE=${INTERFACE}
+    user: root
     container_name: barracuda-dhcp-server
+    tty: true
     network_mode: host
     environment:
-      - INTERFACE=eth0
-    restart: unless-stopped
+      - INTERFACE=${INTERFACE}
+    restart: no
