@@ -5,6 +5,7 @@ ARG DEBIAN_FRONTEND=noninteractive
 RUN apt-get update && apt-get install -y dnsmasq
 
 COPY dnsmasq.conf /etc/dnsmasq.conf
+COPY entrypoint.sh /entrypoint.sh
 
 EXPOSE 67/udp 68/udp
 
