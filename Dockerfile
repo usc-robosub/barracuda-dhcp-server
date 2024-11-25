@@ -7,6 +7,6 @@ RUN apt-get update && apt-get install -y dnsmasq
 COPY dnsmasq.conf /etc/dnsmasq.conf
 COPY entrypoint.sh /entrypoint.sh
 
-EXPOSE 67/udp 68/udp
+EXPOSE 53/udp 67/udp
 
 CMD ["/bin/bash", "/entrypoint.sh"]
