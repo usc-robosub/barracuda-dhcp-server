@@ -3,12 +3,10 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-      args:
-        - INTERFACE=${INTERFACE}
     user: root
     container_name: barracuda-dhcp-server
     tty: true
     network_mode: host
-    environment:
-      - INTERFACE=${INTERFACE}
-    restart: no
+    cap_add:
+      - NET_ADMIN
+    restart: always
